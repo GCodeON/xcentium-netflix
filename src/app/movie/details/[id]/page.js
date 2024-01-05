@@ -32,13 +32,15 @@ export default function Movie({params}) {
                     <p>{movie.Plot}</p>
                 </div>   
                 <div className="media">
+                  {movie.Poster && (
                     <Image 
-                        className="image" 
-                        src={movie.Poster ? movie.Poster : ''} 
-                        alt={movie.Title}
-                        width={300}
-                        height={444}
+                      className="image" 
+                      src={movie.Poster} 
+                      alt={movie.Title}
+                      width={300}
+                      height={444}
                     />
+                  )}
                 </div>      
             </div>
         )}
