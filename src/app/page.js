@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <main className="home">
       <section className="hero">
-        <div className="container">
+        <div className="content container">
           <h1>Unlimited movies, TV shows, and more</h1>
         </div>
       </section>
