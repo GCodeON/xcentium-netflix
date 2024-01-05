@@ -14,5 +14,12 @@
         &::-webkit-scrollbar {
             display: none;
         }
+        .poster {
+            transition: 0.3s ease-in all;
+            overflow-y: none;
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
     }    
 }

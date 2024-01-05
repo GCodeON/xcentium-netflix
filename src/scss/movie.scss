@@ -12,13 +12,16 @@
         align-items          : center;
         grid-gap             : 25px;
         background-image     : none !important;
-        padding            : 1em;
+        padding              : 1em;
     }
     .content {
         .title {
-            max-width     : 450px;
+            max-width     : 250px;
             text-transform: uppercase;
             transition: all 1s ease-out;
+            @include breakpoint(medium) {
+                max-width     : max-content;
+            }
         }
         .actors {
             margin: 2em 0;
