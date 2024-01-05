@@ -45,7 +45,7 @@ h1 {
 	font-size : 1.5em;
 	transition: 1s ease-in all;
 	@include breakpoint(large) {
-		font-size: 3em;
+		font-size: 2.5em;
 	}
 }
 

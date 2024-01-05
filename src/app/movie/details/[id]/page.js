@@ -4,35 +4,53 @@ import Image from 'next/image'
 import Link from 'next/link'
 import axios from 'axios';
 
-import Slider from '@/components/slider';
+import YoutubeIframe from '@/components/youtubeIframe';
 
 import '@/scss/movie.scss';
  
 export default function Movie({params}) {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
+  const [videoId, setVideoId] = useState();
 
   const apiURL = `https://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
+
+  const youtubeAPI = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=${process.env.NEXT_PUBLIC_YOUTUBE_DATA_API_KEY}`
 
   useEffect(() => {
     getMovie();
   }, []);
+
 
   function getMovie() {
     axios.get(`${apiURL}&i=${params.id}`)
     .then(res => {
       console.log('res', res.data);
       setMovie(res.data);
+      getYTVideo(res.data.Title)
     })
     .catch((error) => {
       console.log(error);
     });
   }
+
+  function getYTVideo(query) {
+    axios.get(`${youtubeAPI}&q=${query} official trailer`)
+    .then(res => {
+      console.log('youtube', res);
+      setVideoId(res.data.items[0].id.videoId);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  
   
   return (
-    <main>
+    <main className="movie">
       {movie && (
         <section className="container">
-          <div className="movie" >
+          <div className="wrapper" >
               <div className="content">
                   <h1 className="title">
                     {movie.Title}
@@ -73,6 +91,11 @@ export default function Movie({params}) {
                 )}
               </div>      
           </div>
+          <YoutubeIframe 
+            videoId={videoId} 
+            width={400} 
+            height={400}
+          />
         </section>
       )}
     </main>
