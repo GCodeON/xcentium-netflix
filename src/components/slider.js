@@ -15,9 +15,7 @@ export default function Slider({query}) {
     axios.get(`${apiURL}&s=${query}`)
     .then(res => {
       console.log('res', res.data.Search);
-      let descendingByYear = res.data.Search.sort((a,b) => a.Year > b.Year);
-      console.log('sort', res.data.Search);
-      setMovies(descendingByYear);
+      setMovies(res.data.Search);
     })
     .catch((error) => {
       console.log(error);
