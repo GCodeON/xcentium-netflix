@@ -10,7 +10,7 @@ export default function Home() {
   const [query, setQuery] = useState('avengers');
   const [movies, setMovies] = useState([]);
 
-  const apiURL = `http://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
+  const apiURL = `https://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
 
   useEffect(() => {
     axios.get(`${apiURL}&s=${query}`)
@@ -27,7 +27,7 @@ export default function Home() {
     <main className="home">
       <section className="hero">
         <div className="container">
-          <h1>Netflix</h1>
+          <h1>Unlimited movies, TV shows, and more</h1>
         </div>
       </section>
       <section className="list">

@@ -9,7 +9,7 @@ import '@/scss/movie.scss';
 export default function Movie({params}) {
   const [movie, setMovie] = useState({});
 
-  const apiURL = `http://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
+  const apiURL = `https://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
 
   useEffect(() => {
     getMovie();
