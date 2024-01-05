@@ -3,7 +3,7 @@
 export default function YoutubeIframe({videoId, width, height}) {
  
   return (
-    <div className="video-container">
+    <div className="video">
       <iframe
         width={width}
         height={height}

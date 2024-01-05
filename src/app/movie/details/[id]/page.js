@@ -10,14 +10,15 @@ import '@/scss/movie.scss';
  
 export default function Movie({params}) {
   const [movie, setMovie] = useState();
+  const [fullPlot, setFullPlot] = useState();
   const [videoId, setVideoId] = useState();
 
   const apiURL = `https://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
-
   const youtubeAPI = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=${process.env.NEXT_PUBLIC_YOUTUBE_DATA_API_KEY}`
 
   useEffect(() => {
     getMovie();
+    getFullPlot();
   }, []);
 
 
@@ -25,7 +26,7 @@ export default function Movie({params}) {
     axios.get(`${apiURL}&i=${params.id}`)
     .then(res => {
       setMovie(res.data);
-      getYTVideo(res.data.Title)
+      getYTVideo(res.data.Title);
     })
     .catch((error) => {
       console.log(error);
@@ -42,8 +43,16 @@ export default function Movie({params}) {
     });
   }
 
-  
-  
+  function getFullPlot() {
+    axios.get(`${apiURL}&i=${params.id}&plot=full`)
+    .then(res => {
+      setFullPlot(res.data.Plot)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   return (
     <main className="movie">
       {movie && (
@@ -91,10 +100,15 @@ export default function Movie({params}) {
           </div>
           {videoId && (
             <YoutubeIframe 
-            videoId={videoId} 
-            width={400} 
-            height={400}
-          />
+              videoId={videoId} 
+              width={400} 
+              height={400}
+            />
+          )}
+          {fullPlot && (
+            <p className="description">
+              {fullPlot}
+            </p>
           )}
         </section>
       )}
