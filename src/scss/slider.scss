@@ -1,0 +1,14 @@
+
+
+.slider {
+    margin: 25px auto;
+    .movies {
+        display       : flex;
+        flex-direction: row;
+        gap           : 2em;
+        overflow-x    : scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }    
+}

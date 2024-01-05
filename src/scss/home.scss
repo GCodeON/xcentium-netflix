@@ -37,21 +37,16 @@
 
         .content {
             text-align: center;
-        }
-    }
-    .list {
-        margin: 50px auto;
-    }
-    .movies {
-        display       : flex;
-        flex-direction: row;
-        gap           : 2em;
-        overflow-x    : scroll;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        @include breakpoint(medium) {
-            padding: 0;
+            max-width: 200px;
+            @include breakpoint(medium) {
+                max-width: none;
+            }
+            p {
+                font-size: 1.2em;
+                @include breakpoint(medium) {
+                    font-size: 1.5em;
+                }
+            }
         }
     }
 }

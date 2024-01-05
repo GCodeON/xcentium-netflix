@@ -48,8 +48,14 @@ h1 {
 	}
 }
 
+
 p {
-	line-height: 2em;
+	font-size  : 1em;
+	font-weight: 400;
+	transition: 1s ease-in all;
+	@include breakpoint(medium) {
+		line-height: 2em;
+	}
 }
 
 .container {

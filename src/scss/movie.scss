@@ -5,13 +5,14 @@
     padding            : 2em;
     background-size    : cover;
     background-position: center;
-    min-height         : 75vh;
+    min-height         : 100vh;
     @include breakpoint(medium) {
         display              : grid;
         grid-template-columns: 1fr 1fr;
         align-items          : center;
         grid-gap             : 25px;
         background-image     : none !important;
+        padding            : 1em;
     }
     .content {
         .title {
