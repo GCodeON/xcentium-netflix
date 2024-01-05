@@ -6,13 +6,16 @@ import axios from 'axios';
 
 import '@/scss/movie.scss';
  
-
 export default function Movie({params}) {
   const [movie, setMovie] = useState({});
 
   const apiURL = `http://www.omdbapi.com/?apiKey=${process.env.NEXT_PUBLIC_OMDB_KEY}`
 
   useEffect(() => {
+    getMovie();
+  }, []);
+
+  function getMovie() {
     axios.get(`${apiURL}&i=${params.id}`)
     .then(res => {
       console.log('res', res.data);
@@ -21,7 +24,7 @@ export default function Movie({params}) {
     .catch((error) => {
       console.log(error);
     });
-  }, []);
+  }
   
   return (
     <main className="container">
