@@ -4,8 +4,8 @@ import '@/scss/global.scss';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'XCentium | Netlfix App',
-  description: 'Next.js Movie App',
+  title: 'XCentium | Netflix App',
+  description: 'NEXT.js Movie App',
 }
 
 export default function RootLayout({ children }) {

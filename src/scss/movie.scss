@@ -2,19 +2,41 @@
 @import "settings";
 
 .movie {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    grid-gap: 25px;
-    margin: 2em 1em;
-
-    .media {
-        background-position: right;
-        background-size    : cover;
-        position: relative;
+    padding            : 2em;
+    background-size    : cover;
+    background-position: center;
+    min-height         : 75vh;
+    @include breakpoint(medium) {
+        display              : grid;
+        grid-template-columns: 1fr 1fr;
+        align-items          : center;
+        grid-gap             : 25px;
+        background-image     : none !important;
     }
-
-    h1 {
-        
+    .content {
+        .title {
+            max-width     : 400px;
+            text-transform: uppercase;
+            transition: all 1s ease-out;
+        }
+        .actors {
+            margin: 2em 0;
+        }
+        .type {
+            text-transform: capitalize;
+        }
+    }
+    .media {
+        margin: 0 auto;
+        .image {
+            display: none;
+            @include breakpoint(medium) {
+                display   : block;
+                transition: all 0.5s ease-in-out;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 }
