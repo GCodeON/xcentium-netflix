@@ -24,6 +24,7 @@ export default function Slider({query}) {
   
   return (
     <div className="slider">
+      <h2 className="title">{query}</h2>
       <ul className='movies'>
         { movies && (
           movies.map((movie, idx) => {
