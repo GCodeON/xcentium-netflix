@@ -1,4 +1,6 @@
 
+@import "mixins";
+@import "settings";
 
 .slider {
     margin: 25px auto;
@@ -16,9 +18,10 @@
         }
         .poster {
             transition: 0.3s ease-in all;
-            overflow-y: none;
             &:hover {
-                transform: scale(0.95);
+                @include breakpoint(large) {
+                    transform: scale(0.95);
+                }
             }
         }
     }    
