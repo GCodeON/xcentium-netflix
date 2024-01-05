@@ -25,9 +25,11 @@ export default function Home() {
   
   return (
     <main className="home">
-      <div className="hero">
-
-      </div>
+      <section className="hero">
+        <div className="container">
+          <h1>Netflix</h1>
+        </div>
+      </section>
       <section className="list">
         <ul className='movies'>
           { movies && (
@@ -35,7 +37,7 @@ export default function Home() {
               return (
                 <li key={idx}>
                   <Link className="link" href={`/movie/details/${movie.imdbID}`}>
-                    <Image className="track-image" 
+                    <Image className="poster" 
                       src={movie.Poster} 
                       alt={movie.Title}
                       width={300}
