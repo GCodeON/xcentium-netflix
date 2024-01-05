@@ -24,7 +24,6 @@ export default function Movie({params}) {
   function getMovie() {
     axios.get(`${apiURL}&i=${params.id}`)
     .then(res => {
-      console.log('res', res.data);
       setMovie(res.data);
       getYTVideo(res.data.Title)
     })
@@ -36,7 +35,6 @@ export default function Movie({params}) {
   function getYTVideo(query) {
     axios.get(`${youtubeAPI}&q=${query} official trailer`)
     .then(res => {
-      console.log('youtube', res);
       setVideoId(res.data.items[0].id.videoId);
     })
     .catch((error) => {
@@ -91,11 +89,13 @@ export default function Movie({params}) {
                 )}
               </div>      
           </div>
-          <YoutubeIframe 
+          {videoId && (
+            <YoutubeIframe 
             videoId={videoId} 
             width={400} 
             height={400}
           />
+          )}
         </section>
       )}
     </main>

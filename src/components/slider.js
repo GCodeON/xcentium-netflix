@@ -14,7 +14,6 @@ export default function Slider({query}) {
   useEffect(() => {
     axios.get(`${apiURL}&s=${query}`)
     .then(res => {
-      console.log('res', res.data.Search);
       setMovies(res.data.Search);
     })
     .catch((error) => {
