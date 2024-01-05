@@ -29,10 +29,10 @@ export default function Movie({params}) {
   }
   
   return (
-    <main className="">
+    <main>
       {movie && (
         <section className="container">
-          <div className="movie" style={{backgroundImage:`url(${movie.Poster})`}}>
+          <div className="movie" >
               <div className="content">
                   <h1 className="title">
                     {movie.Title}
