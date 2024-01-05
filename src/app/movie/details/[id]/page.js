@@ -27,7 +27,8 @@ export default function Movie({params}) {
   }
   
   return (
-    <main className="container">
+    <main className="movies">
+      <section className="container">
         {movie && (
             <div className="movie" style={{backgroundImage:`url(${movie.Poster})`}}>
                 <div className="content">
@@ -71,6 +72,7 @@ export default function Movie({params}) {
                 </div>      
             </div>
         )}
+      </section>
     </main>
   )
 }

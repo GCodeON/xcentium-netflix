@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import axios from 'axios';
 
+import '@/scss/home.scss';
 
 export default function Home() {
   const [query, setQuery] = useState('avengers');
@@ -23,7 +24,11 @@ export default function Home() {
   }, []);
   
   return (
-    <main className="main">
+    <main className="home">
+      <div className="hero">
+
+      </div>
+      <section className="list">
         <ul className='movies'>
           { movies && (
             movies.map((movie, idx) => {
@@ -42,6 +47,7 @@ export default function Home() {
             })
           )}
         </ul>
+      </section>
     </main>
   )
 }
